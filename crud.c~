@@ -1,0 +1,33 @@
+#include "mymatrix.h"
+
+// Returns element at i, j in the matrix struocture (1-based index)
+int ValueFromMatrix(Matrix matrix, int row, int column)
+{
+  assert(row <= matrix.Rows);
+  assert(column <= matrix.Columns);
+  return *(matrix.Data + (row - 1) * matrix.Columns + column - 1);
+}
+
+// Get a value from a submatrix
+int ValueFromSubMatrix(SubMatrix subMatrix, int row, int column)
+{
+  int realRow = subMatrix.StartRow + row - 1;
+  int realColumn = subMatrix.StartColumn + column - 1;
+  return ValueFromMatrix(*(subMatrix.Matrix), realRow, realColumn);
+}
+
+// Send value to a matrix through a submatrix
+void ValueToSubMatrix(SubMatrix subMatrix, int row, int column, int value)
+{
+  int realRow = subMatrix.StartRow + row - 1;
+  int realColumn = subMatrix.StartColumn + column - 1;
+  ValueToMatrix(*subMatrix.Matrix, realRow, realColumn, value);
+}
+
+// Send value to a matrix
+void ValueToMatrix(Matrix matrix, int row, int column, int value)
+{
+  assert(row <= matrix.Rows);
+  assert(column <= matrix.Columns);
+  *(matrix.Data + (row - 1) * matrix.Columns + column - 1) = value;
+} 
