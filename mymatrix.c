@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -343,7 +344,7 @@ void StrassenMatrixMultiply(Matrix *out, Matrix A, Matrix B)
   CREATESUBMATRIX(A_Sub, A, 1, 1, A.Rows, A.Columns);
   CREATESUBMATRIX(B_Sub, B, 1, 1, B.Rows, B.Columns);
 
-  StrassenSubMultiply(ouxot, A_Sub, B_Sub);
+  StrassenSubMultiply(out, A_Sub, B_Sub);
 }
 // Multiply two square submatrices using Strassen's algorithm (for larger matrices)
 void StrassenSubMultiply(Matrix *out, SubMatrix A, SubMatrix B)

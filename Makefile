@@ -1,5 +1,5 @@
 CFLAGS = -Wall -g 
-mylibdir = ../mylib
+mylibdir = ../my-lib
 
 # Option explanations: 
 # -L tells gcc to add a directory to library search path

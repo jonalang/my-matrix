@@ -38,7 +38,7 @@ void PadMatrix(Matrix *out, Matrix in);
 void RecursiveMatrixMultiply(Matrix *out, SubMatrix A, SubMatrix B);
 void StrassenMatrixMultiply(Matrix *out, Matrix A, Matrix B);
 void StrassenSubMultiply(Matrix *out, SubMatrix A, SubMatrix B);
-Matrix *SubMatrixToMatrix(Matrix *out, SubMatrix A, SubMatrix B);
+Matrix *SubMatrixToMatrix(Matrix *out, SubMatrix A);
 void UnpadMatrix(Matrix *out, Matrix in);
 int ValueFromMatrix(Matrix matrix, int row, int column);
 int ValueFromSubMatrix(SubMatrix subMatrix, int row, int column);
