@@ -1,5 +1,9 @@
 CFLAGS = -Wall -g 
 mylibdir = ../my-lib
+mysortdir = ../my-sort
+Ldirs = -L$(mylibdir) -L$(mysortdir)
+headerdirs = -iquote$(mylibdir) -iquote$(mysortdir)
+linkerdirs = -Wl,-rpath,$(mylibdir),-rpath,$(mysortdir)
 
 # Option explanations: 
 # -L tells gcc to add a directory to library search path
@@ -10,8 +14,8 @@ mylibdir = ../my-lib
 # -lmylib a library to include when building
 # -shared create a shared library
 all: 
-	gcc $(CFLAGS) -L$(mylibdir) -Wl,-rpath,$(mylibdir) -iquote$(mylibdir) -c -fPIC  mymatrix.c -lmylib
-	gcc -shared -o libmymatrix.so mymatrix.o
+	gcc $(CFLAGS)  -c $(headerdirs) -fPIC  mymatrix.c
+	gcc -shared $(Ldirs) $(linkerdirs) -o libmymatrix.so mymatrix.o -lmylib -lmysort
 
 clean: rm libmymatrix*
 
