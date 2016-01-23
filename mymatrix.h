@@ -45,7 +45,7 @@ int ValueFromSubMatrix(SubMatrix subMatrix, int row, int column);
 void ValueToMatrix(Matrix matrix, int row, int column, int value);
 void ValueToSubMatrix(SubMatrix subMatrix, int row, int column, int value);
 
-#define CREATEMATRIX(matrixName, rows, columns); Matrix matrixName; int matrixName##Data[(rows)][(columns)]; matrixName.Data = &matrixName##Data[0][0]; matrixName.Rows = (rows); matrixName.Columns = (rows)
+#define CREATEMATRIX(matrixName, rows, columns); Matrix matrixName; int matrixName##Data[(rows)][(columns)]; matrixName.Data = &matrixName##Data[0][0]; matrixName.Rows = (rows); matrixName.Columns = (columns)
 
 #define CREATESUBMATRIX(subMatrixName, dataName, startRow, startColumn, endRow, endColumn); SubMatrix subMatrixName = {.Matrix = &dataName, .StartRow = (startRow), .StartColumn = (startColumn), .EndRow = (endRow), .EndColumn = (endColumn)}
 #endif
